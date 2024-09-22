@@ -19,7 +19,6 @@ abstract public class SimpleDataRepository<T extends Entity, ID extends Long> im
         }
     };
 
-
     // create
 
     @Override
@@ -50,7 +49,6 @@ abstract public class SimpleDataRepository<T extends Entity, ID extends Long> im
         return data;
     }
 
-
     // read
     @Override
     public Optional<T> findById(ID id) {
@@ -77,5 +75,4 @@ abstract public class SimpleDataRepository<T extends Entity, ID extends Long> im
             dataList.remove(deleteEntity.get());
         }
     }
-
 }

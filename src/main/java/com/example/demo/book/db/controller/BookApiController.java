@@ -5,7 +5,9 @@ import com.example.demo.book.db.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/book")
@@ -24,4 +26,28 @@ public class BookApiController {
     public List<BookEntity> findAll(){
         return bookService.findAll();
     }
+
+    @GetMapping("/id/{id}")
+    public Optional<BookEntity> findById(
+            @PathVariable Long id
+    ) {
+        return bookService.findById(id);
+    }
+
+    @DeleteMapping("/id/{id}")
+    public void delete(
+            @PathVariable Long id
+    ) {
+        bookService.delete(id);
+    }
+
+//    @GetMapping("/categoryWithAmount")
+//    public List<BookEntity> filterCategoryAndAmount(
+//            @RequestParam String category,
+//            @RequestParam BigDecimal amount
+//    )
+//    {
+//        return bookService.filterCategoryAndAmount(category, amount);
+//    }
+
 }
